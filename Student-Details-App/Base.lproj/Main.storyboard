@@ -35,30 +35,32 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="agy-RO-Jo6">
-                                <rect key="frame" x="30" y="273" width="333" height="45"/>
+                                <rect key="frame" x="56.666666666666657" y="273" width="280" height="42"/>
                                 <color key="backgroundColor" systemColor="systemYellowColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="sip-2C-xlZ"/>
+                                    <constraint firstAttribute="width" constant="280" id="BWJ-a0-NlO"/>
+                                    <constraint firstAttribute="height" constant="42" id="sip-2C-xlZ"/>
                                 </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Existing School">
-                                    <fontDescription key="titleFontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="29"/>
+                                    <fontDescription key="titleFontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="25"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="didTouchExistingSchoolButtonAction" destination="cBV-Oq-Xej" eventType="touchUpInside" id="bjU-IX-FOU"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vVN-tn-eiP">
-                                <rect key="frame" x="30" y="348" width="333" height="45"/>
+                                <rect key="frame" x="56.666666666666657" y="345" width="280" height="42"/>
                                 <color key="backgroundColor" systemColor="systemTealColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="ocm-Aa-9sh"/>
+                                    <constraint firstAttribute="width" constant="280" id="d0e-Jm-zuc"/>
+                                    <constraint firstAttribute="height" constant="42" id="ocm-Aa-9sh"/>
                                 </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Register new school">
-                                    <fontDescription key="titleFontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="29"/>
+                                    <fontDescription key="titleFontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="25"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="didTouchRegisterNewSchoolButtonAction" destination="cBV-Oq-Xej" eventType="touchUpInside" id="41m-KU-zmh"/>
@@ -70,15 +72,13 @@
                         <constraints>
                             <constraint firstItem="agy-RO-Jo6" firstAttribute="top" secondItem="OkI-72-Lbx" secondAttribute="bottom" constant="70" id="1JN-8k-QoB"/>
                             <constraint firstItem="vVN-tn-eiP" firstAttribute="top" secondItem="agy-RO-Jo6" secondAttribute="bottom" constant="30" id="1eS-zK-caq"/>
+                            <constraint firstItem="agy-RO-Jo6" firstAttribute="centerX" secondItem="eey-wi-FJl" secondAttribute="centerX" id="2rj-eV-Mty"/>
                             <constraint firstItem="uUq-PZ-jkj" firstAttribute="trailing" secondItem="6gw-cB-uTz" secondAttribute="trailing" constant="30" id="GER-4h-ju6"/>
-                            <constraint firstItem="uUq-PZ-jkj" firstAttribute="trailing" secondItem="vVN-tn-eiP" secondAttribute="trailing" constant="30" id="KV4-vz-r07"/>
+                            <constraint firstItem="vVN-tn-eiP" firstAttribute="centerX" secondItem="eey-wi-FJl" secondAttribute="centerX" id="GYW-Zp-GoI"/>
                             <constraint firstItem="6gw-cB-uTz" firstAttribute="top" secondItem="uUq-PZ-jkj" secondAttribute="top" id="OXI-Ff-rDS"/>
                             <constraint firstItem="uUq-PZ-jkj" firstAttribute="trailing" secondItem="OkI-72-Lbx" secondAttribute="trailing" constant="30" id="Sco-vq-FIh"/>
-                            <constraint firstItem="vVN-tn-eiP" firstAttribute="leading" secondItem="uUq-PZ-jkj" secondAttribute="leading" constant="30" id="SjX-Ga-Rhl"/>
-                            <constraint firstItem="agy-RO-Jo6" firstAttribute="leading" secondItem="uUq-PZ-jkj" secondAttribute="leading" constant="30" id="UdC-ux-3L1"/>
                             <constraint firstItem="OkI-72-Lbx" firstAttribute="top" secondItem="6gw-cB-uTz" secondAttribute="bottom" constant="30" id="bbs-wj-csy"/>
                             <constraint firstItem="6gw-cB-uTz" firstAttribute="leading" secondItem="uUq-PZ-jkj" secondAttribute="leading" constant="30" id="jtu-i1-Pgh"/>
-                            <constraint firstItem="uUq-PZ-jkj" firstAttribute="trailing" secondItem="agy-RO-Jo6" secondAttribute="trailing" constant="30" id="k4Y-gE-Y0D"/>
                             <constraint firstItem="OkI-72-Lbx" firstAttribute="leading" secondItem="uUq-PZ-jkj" secondAttribute="leading" constant="30" id="k6p-Kh-fsA"/>
                         </constraints>
                     </view>
@@ -286,7 +286,7 @@
                                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" title="Register">
-                                                        <fontDescription key="titleFontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="28"/>
+                                                        <fontDescription key="titleFontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="25"/>
                                                     </buttonConfiguration>
                                                     <connections>
                                                         <action selector="didTouchRegisterButtonAction" destination="DxQ-K5-HSJ" eventType="touchUpInside" id="oCM-dN-0Ls"/>
