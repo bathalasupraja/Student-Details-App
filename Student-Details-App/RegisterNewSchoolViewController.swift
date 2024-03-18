@@ -16,6 +16,8 @@ class RegisterTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         registerButton.layer.cornerRadius = 7
+        //201, 66, 126, 0.961
+        registerButton.layer.backgroundColor = CGColor(srgbRed: 201/255, green: 66/255, blue: 126/255, alpha: 0.961)
     }
 }
 

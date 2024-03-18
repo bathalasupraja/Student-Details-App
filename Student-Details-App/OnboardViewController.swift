@@ -15,8 +15,12 @@ class OnboardViewController : UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        //164, 84, 232, 0.961)
+        //67, 247, 235, 0.969)
         existingSchoolButton.layer.cornerRadius = 7
         registerNewSchoolButton.layer.cornerRadius = 7
+        existingSchoolButton.layer.backgroundColor = CGColor(srgbRed: 164/255, green: 84/255, blue: 232/255, alpha: 0.961)
+        registerNewSchoolButton.layer.backgroundColor = CGColor(red: 67/255, green: 247/255, blue: 235/255, alpha: 0.969)
         
     }
     

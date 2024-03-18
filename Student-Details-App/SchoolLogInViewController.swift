@@ -15,7 +15,9 @@ class LoginTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        //87, 245, 102, 0.969
         loginButton.layer.cornerRadius = 7
+        loginButton.layer.backgroundColor = CGColor(red: 87/255, green: 245/255, blue: 102/255, alpha: 0.969)
     }
 }
 
