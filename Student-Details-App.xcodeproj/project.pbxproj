@@ -7,25 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		36A3E0A02BA7F08400CCDA76 /* RegisterNewSchoolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A3E09F2BA7F08400CCDA76 /* RegisterNewSchoolViewController.swift */; };
+		36A3E0A22BA7F2A000CCDA76 /* RegisterNewSchoolTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A3E0A12BA7F2A000CCDA76 /* RegisterNewSchoolTableViewCell.swift */; };
 		36A8A7452BA74029009D2807 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A8A7442BA74029009D2807 /* AppDelegate.swift */; };
 		36A8A7472BA74029009D2807 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A8A7462BA74029009D2807 /* SceneDelegate.swift */; };
-		36A8A7492BA74029009D2807 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A8A7482BA74029009D2807 /* ViewController.swift */; };
+		36A8A7492BA74029009D2807 /* OnboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A8A7482BA74029009D2807 /* OnboardViewController.swift */; };
 		36A8A74C2BA74029009D2807 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36A8A74A2BA74029009D2807 /* Main.storyboard */; };
 		36A8A74F2BA74029009D2807 /* Student_Details_App.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 36A8A74D2BA74029009D2807 /* Student_Details_App.xcdatamodeld */; };
 		36A8A7512BA7402B009D2807 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36A8A7502BA7402B009D2807 /* Assets.xcassets */; };
 		36A8A7542BA7402B009D2807 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36A8A7522BA7402B009D2807 /* LaunchScreen.storyboard */; };
+		36A8A75C2BA746A7009D2807 /* SchoolLogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A8A75B2BA746A7009D2807 /* SchoolLogInViewController.swift */; };
+		36A8A75E2BA749E4009D2807 /* SchoolLoginTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A8A75D2BA749E4009D2807 /* SchoolLoginTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		36A3E09F2BA7F08400CCDA76 /* RegisterNewSchoolViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterNewSchoolViewController.swift; sourceTree = "<group>"; };
+		36A3E0A12BA7F2A000CCDA76 /* RegisterNewSchoolTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterNewSchoolTableViewCell.swift; sourceTree = "<group>"; };
 		36A8A7412BA74029009D2807 /* Student-Details-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Student-Details-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		36A8A7442BA74029009D2807 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		36A8A7462BA74029009D2807 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		36A8A7482BA74029009D2807 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		36A8A7482BA74029009D2807 /* OnboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardViewController.swift; sourceTree = "<group>"; };
 		36A8A74B2BA74029009D2807 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		36A8A74E2BA74029009D2807 /* Student_Details_App.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Student_Details_App.xcdatamodel; sourceTree = "<group>"; };
 		36A8A7502BA7402B009D2807 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		36A8A7532BA7402B009D2807 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		36A8A7552BA7402B009D2807 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		36A8A75B2BA746A7009D2807 /* SchoolLogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolLogInViewController.swift; sourceTree = "<group>"; };
+		36A8A75D2BA749E4009D2807 /* SchoolLoginTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolLoginTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,8 +68,12 @@
 			children = (
 				36A8A7442BA74029009D2807 /* AppDelegate.swift */,
 				36A8A7462BA74029009D2807 /* SceneDelegate.swift */,
-				36A8A7482BA74029009D2807 /* ViewController.swift */,
+				36A8A7482BA74029009D2807 /* OnboardViewController.swift */,
 				36A8A74A2BA74029009D2807 /* Main.storyboard */,
+				36A3E0A12BA7F2A000CCDA76 /* RegisterNewSchoolTableViewCell.swift */,
+				36A3E09F2BA7F08400CCDA76 /* RegisterNewSchoolViewController.swift */,
+				36A8A75D2BA749E4009D2807 /* SchoolLoginTableViewCell.swift */,
+				36A8A75B2BA746A7009D2807 /* SchoolLogInViewController.swift */,
 				36A8A7502BA7402B009D2807 /* Assets.xcassets */,
 				36A8A7522BA7402B009D2807 /* LaunchScreen.storyboard */,
 				36A8A7552BA7402B009D2807 /* Info.plist */,
@@ -142,9 +154,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				36A8A74F2BA74029009D2807 /* Student_Details_App.xcdatamodeld in Sources */,
-				36A8A7492BA74029009D2807 /* ViewController.swift in Sources */,
+				36A3E0A22BA7F2A000CCDA76 /* RegisterNewSchoolTableViewCell.swift in Sources */,
+				36A3E0A02BA7F08400CCDA76 /* RegisterNewSchoolViewController.swift in Sources */,
+				36A8A7492BA74029009D2807 /* OnboardViewController.swift in Sources */,
 				36A8A7452BA74029009D2807 /* AppDelegate.swift in Sources */,
+				36A8A75E2BA749E4009D2807 /* SchoolLoginTableViewCell.swift in Sources */,
 				36A8A7472BA74029009D2807 /* SceneDelegate.swift in Sources */,
+				36A8A75C2BA746A7009D2807 /* SchoolLogInViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
