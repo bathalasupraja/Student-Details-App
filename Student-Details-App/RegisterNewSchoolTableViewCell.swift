@@ -47,3 +47,13 @@ class RegisterNewSchoolTableViewCell: UITableViewCell {
         }
     }
 }
+
+extension RegisterNewSchoolTableViewCell: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        nameTextField.resignFirstResponder()
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        delegate?.didUpdateText(textField.text, tag: textField.tag)
+    }
+}
