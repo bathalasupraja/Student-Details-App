@@ -22,6 +22,7 @@ class SchoolLoginTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        schoolIdTextField.delegate = self
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -29,11 +30,13 @@ class SchoolLoginTableViewCell: UITableViewCell {
 
     }
     
-    func prepareWithField(_ field: FieldModel, delegate: SchoolLoginTableViewCellDelegate?, indexPath: IndexPath) {
+    func prepareWithField(_ loginField: FieldModel, delegate: SchoolLoginTableViewCellDelegate?, indexPath: IndexPath) {
         schoolIdTextField.keyboardType = getKeypadTypeForIndexPath(indexPath)
-        schoolIdLabel.text = field.name
-        schoolIdTextField.placeholder = field.placeholder
-        schoolIdTextField.text = field.value
+        schoolIdLabel.text = loginField.name
+        schoolIdTextField.placeholder = loginField.placeholder
+        schoolIdTextField.text = loginField.value
+        let isPassword = loginField.type == .password
+        schoolIdTextField.isSecureTextEntry = isPassword
         self.delegate = delegate
         schoolIdTextField.tag = indexPath.row
     }
@@ -45,5 +48,15 @@ class SchoolLoginTableViewCell: UITableViewCell {
         default:
             return .default
         }
+    }
+}
+
+extension SchoolLoginTableViewCell: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        schoolIdTextField.resignFirstResponder()
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        delegate?.didUpdateText(textField.text, tag: textField.tag)
     }
 }

@@ -21,7 +21,12 @@ class RegisterTableViewCell: UITableViewCell {
     }
 }
 
-struct TextFieldModel {
+enum FieldTypeEnum {
+    case id, name, password, confirmPassword
+}
+
+struct RegistrationFieldModel {
+    var type: FieldTypeEnum
     var name: String
     var placeholder: String
     var value: String?
@@ -31,7 +36,7 @@ class RegisterNewSchoolViewController: UIViewController {
     
     @IBOutlet weak var newSchoolTableView: UITableView!
     
-    var textFields = [TextFieldModel]()
+    var registrationFields = [RegistrationFieldModel]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,10 +48,10 @@ class RegisterNewSchoolViewController: UIViewController {
     }
     
     func createTextFields() {
-        textFields.append(TextFieldModel(name: "School name", placeholder: "Enter school name."))
-        textFields.append(TextFieldModel(name: "School Id", placeholder: "Enter school Id."))
-        textFields.append(TextFieldModel(name: "Password", placeholder: "Enter Password."))
-        textFields.append(TextFieldModel(name: "Confirm password", placeholder: "Enter confirm password."))
+        registrationFields.append(RegistrationFieldModel(type: .name, name: "School name", placeholder: "Enter school name."))
+        registrationFields.append(RegistrationFieldModel(type: .id, name: "School Id", placeholder: "Enter school Id."))
+        registrationFields.append(RegistrationFieldModel(type: .password, name: "Password", placeholder: "Enter Password."))
+        registrationFields.append(RegistrationFieldModel(type: .confirmPassword, name: "Confirm password", placeholder: "Enter confirm password."))
     }
     
     func getCellIdentifierAtIndexPath(_ indexPath: IndexPath) -> String {
@@ -67,22 +72,52 @@ class RegisterNewSchoolViewController: UIViewController {
         }
     }
     
+    private func getTextForFieldType(_ type: FieldTypeEnum) -> String? {
+        registrationFields.first(where: { $0.type == type })?.value
+    }
+    
     @IBAction func didTouchRegisterButtonAction() {
-        let storyboard = self.storyboard?.instantiateViewController(withIdentifier: "SchoolLogInViewController") as! SchoolLogInViewController
-         self.navigationController?.pushViewController(storyboard, animated: true)
+        view.endEditing(true)
+        guard let name = getTextForFieldType(.name), let idText = getTextForFieldType(.id), let id = Int16(idText), let password = getTextForFieldType(.password), let confirmPassword = getTextForFieldType(.confirmPassword) else {
+            showToast("Please enter valid input", message: "Please check the entered fields.")
+            return
+        }
+        
+        if password.count >= 8 && password == confirmPassword {
+            if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+                appDelegate.fetchAllSchools { schools in
+                    if let schools, !schools.isEmpty, schools.first(where: { $0.id == id }) != nil {
+                        self.showToast("School is already exist!", message: "Entered school is already exists, please try login instead of new registration")
+                    } else {
+                        appDelegate.addSchool(name: name, id: id, password: password)
+                        if let controller = SchoolLogInViewController.create() {
+                            self.navigationController?.pushViewController(controller, animated: true)
+                        }
+                    }
+                }
+            }
+        } else {
+            showToast("Wrong password", message: "Please check the entered password.")
+        }
+    }
+    
+    private func showToast(_ title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default))
+        self.present(alert, animated: true)
     }
 }
 
 extension RegisterNewSchoolViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return textFields.count + 1
+        return registrationFields.count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = getCellIdentifierAtIndexPath(indexPath)
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
         if let registerNewSchoolTableViewCell = cell as? RegisterNewSchoolTableViewCell {
-            let textField = textFields[indexPath.row]
+            let textField = registrationFields[indexPath.row]
             registerNewSchoolTableViewCell.prepareWithTextField( textField, delegate: self, indexPath: indexPath)
         }
         return cell
@@ -92,12 +127,18 @@ extension RegisterNewSchoolViewController: UITableViewDataSource, UITableViewDel
         let height = getCellHeightAtIndexPath(indexPath)
         return height
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let controller = storyboard?.instantiateViewController(withIdentifier: "AddStudentDetails") {
+            self.navigationController?.pushViewController(controller, animated: true)
+        }
+    }
 }
 
 extension RegisterNewSchoolViewController: RegisterNewSchoolTableViewCellDelegate {
     func didUpdateText(_ text: String?, tag: Int) {
         print(text)
         print(tag)
-        textFields[tag].value = text
+        registrationFields[tag].value = text
     }
 }
