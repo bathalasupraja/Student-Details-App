@@ -1,24 +1,25 @@
 //
-//  RegisterNewSchoolTableViewCell.swift
+//  AddStudentsTableViewCell.swift
 //  Student-Details-App
 //
-//  Created by Supraja on 18/03/24.
+//  Created by Supraja on 22/03/24.
 //
 
 import UIKit
 
-protocol RegisterNewSchoolTableViewCellDelegate: AnyObject {
+protocol AddStudentsTableViewCellDelegate: AnyObject {
     func didUpdateText(_ text: String?, tag: Int)
 }
 
-class RegisterNewSchoolTableViewCell: UITableViewCell {
+class AddStudentsTableViewCell: UITableViewCell {
     
-    static let id = "RegisterNewSchoolTableViewCell"
+    static let id = "AddStudentsTableViewCell"
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var nameTextField: UITextField!
     
-    weak var delegate: RegisterNewSchoolTableViewCellDelegate?
+    weak var delegate: AddStudentsTableViewCellDelegate?
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,21 +30,22 @@ class RegisterNewSchoolTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func prepareWithTextField(_ textField: RegistrationFieldModel, delegate: RegisterNewSchoolTableViewCellDelegate?, indexPath: IndexPath) {
+    func prepareWithTextField(_ textField: SchoolDataModel, delegate: AddStudentsTableViewCellDelegate?, indexPath: IndexPath) {
         nameTextField.keyboardType = getKeypadTypeForIndexPath(indexPath)
         nameLabel.text = textField.name
         nameTextField.placeholder = textField.placeholder
         nameTextField.text = textField.value
+        self.delegate = delegate
         let isPassword = textField.type == .password || textField.type == .confirmPassword
         nameTextField.isSecureTextEntry = isPassword
-        
-        self.delegate = delegate
         nameTextField.tag = indexPath.row
     }
     
     func getKeypadTypeForIndexPath(_ indexPath: IndexPath) -> UIKeyboardType {
         switch indexPath.row {
-        case 0,1:
+        case 0,3,4:
+            return .namePhonePad
+        case 1,2,5:
             return .numbersAndPunctuation
         default:
             return .default
@@ -51,7 +53,7 @@ class RegisterNewSchoolTableViewCell: UITableViewCell {
     }
 }
 
-extension RegisterNewSchoolTableViewCell: UITextFieldDelegate {
+extension AddStudentsTableViewCell: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         nameTextField.resignFirstResponder()
     }

@@ -79,3 +79,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+extension AppDelegate {
+    /// Collect all available schools
+    func fetchAllSchools(onSuccess: @escaping ([SchoolEntity]?) -> Void) {
+        let context = persistentContainer.viewContext
+        do {
+            let items = try context.fetch(SchoolEntity.fetchRequest()) as? [SchoolEntity]
+            onSuccess(items)
+        } catch {
+            print("error-Fetching data")
+        }
+    }
+
+    /// Add new school
+    func addSchool(name: String, id: Int16, password: String) {
+        let context = persistentContainer.viewContext
+        let newSchool = SchoolEntity(context: context)
+        newSchool.name = name
+        newSchool.id = id
+        newSchool.password = password
+        do {
+            try context.save()
+        } catch {
+            print("error-Saving data")
+        }
+    }
+    
+    /// Find school exist or not
+    func schoolExists(id: Int16, password: String, onSuccess: @escaping (Bool) -> Void) {
+        fetchAllSchools { allSchools in
+            if let allSchools, allSchools.first(where: { $0.id == id && $0.password == password }) != nil {
+                onSuccess(true)
+            } else {
+                onSuccess(false)
+            }
+        }
+    }
+}

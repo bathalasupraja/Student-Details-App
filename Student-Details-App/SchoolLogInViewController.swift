@@ -21,7 +21,12 @@ class LoginTableViewCell: UITableViewCell {
     }
 }
 
+enum LoginFieldTypeEnum {
+    case id, password
+}
+
 struct FieldModel {
+    var type: LoginFieldTypeEnum
     var name: String
     var placeholder: String
     var value: String?
@@ -29,23 +34,27 @@ struct FieldModel {
 
 class SchoolLogInViewController: UIViewController {
     
+    static func create() -> SchoolLogInViewController? {
+        UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SchoolLogInViewController") as? SchoolLogInViewController
+    }
+    
     @IBOutlet weak var schoolLoginLabel: UILabel!
     @IBOutlet weak var schoolLoginTableView: UITableView!
     
-    var fields = [FieldModel]()
-
+    var loginFields = [FieldModel]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        createFields()
+        createLoginfields()
         schoolLoginTableView.separatorStyle = .none
         schoolLoginTableView.allowsSelection = false
         schoolLoginTableView.dataSource = self
         schoolLoginTableView.delegate = self
     }
     
-    func createFields() {
-        fields.append(FieldModel(name: "School Id", placeholder: "Enter school name."))
-        fields.append(FieldModel(name: "Password", placeholder: "Enter password."))
+    func createLoginfields() {
+        loginFields.append(FieldModel(type: .id, name: "School Id", placeholder: "Enter school name."))
+        loginFields.append(FieldModel(type: .password, name: "Password", placeholder: "Enter password."))
     }
     
     func getCellIdentifierAtIndexPath(_ indexPath: IndexPath) -> String {
@@ -65,19 +74,52 @@ class SchoolLogInViewController: UIViewController {
             return 100
         }
     }
+    
+    private func getTextForFieldType(_ type: LoginFieldTypeEnum) -> String? {
+        loginFields.first(where: { $0.type == type })?.value
+    }
+    
+    @IBAction func didTouchLoginButtonAction() {
+        view.endEditing(true)
+        guard let idText = getTextForFieldType(.id), let id = Int16(idText), let password = getTextForFieldType(.password) else {
+            showToast("Please enter valid input", message: "Please check the entered fields.")
+            return
+        }
+        
+        if password.count >= 8 {
+            if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+                appDelegate.schoolExists(id: id, password: password) { isSchoolExist in
+                    if isSchoolExist {
+                        self.showToast("Wrong password", message: "Please check the entered fields.")
+                    }
+                    if let controller = HomeLoginViewController.create() {
+                        self.navigationController?.pushViewController(controller, animated: true)
+                    }
+                }
+            } else {
+                showToast("Please enter valid input", message: "Please check the entered fields.")
+                
+            }
+        }
+    }
+    private func showToast(_ title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default))
+        self.present(alert, animated: true)
+    }
 }
 
 extension SchoolLogInViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return fields.count + 1
+        return loginFields.count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = getCellIdentifierAtIndexPath(indexPath)
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
         if let schoolLoginTableViewCell = cell as? SchoolLoginTableViewCell {
-            let field = fields[indexPath.row]
-            schoolLoginTableViewCell.prepareWithField(field, delegate: self, indexPath: indexPath)
+            let loginField = loginFields[indexPath.row]
+            schoolLoginTableViewCell.prepareWithField(loginField, delegate: self, indexPath: indexPath)
         }
         return cell
     }
@@ -92,7 +134,7 @@ extension SchoolLogInViewController: SchoolLoginTableViewCellDelegate {
     func didUpdateText(_ text: String?, tag: Int) {
         print(text)
         print(tag)
-        fields[tag].value = text
+        loginFields[tag].value = text
     }
 }
 
