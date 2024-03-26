@@ -9,7 +9,7 @@ import UIKit
 
 class SaveButtonTableViewCell: UITableViewCell {
     
-    static let id = "RegisterTableViewCell"
+    static let id = "SaveButtonTableViewCell"
     
     @IBOutlet weak var saveButton: UIButton!
     

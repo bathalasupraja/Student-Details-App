@@ -90,10 +90,11 @@ class SchoolLogInViewController: UIViewController {
             if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
                 appDelegate.schoolExists(id: id, password: password) { isSchoolExist in
                     if isSchoolExist {
+                        if let controller = TabBarViewController.create() {
+                            self.navigationController?.pushViewController(controller, animated: true)
+                        }
+                    } else {
                         self.showToast("Wrong password", message: "Please check the entered fields.")
-                    }
-                    if let controller = HomeLoginViewController.create() {
-                        self.navigationController?.pushViewController(controller, animated: true)
                     }
                 }
             } else {

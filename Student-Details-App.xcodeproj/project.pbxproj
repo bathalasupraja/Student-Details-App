@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		361CBC852BB1548A00F7A877 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361CBC842BB1548A00F7A877 /* TabBarViewController.swift */; };
 		36626E0C2BAD486E0063B38D /* HomeLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36626E0B2BAD486E0063B38D /* HomeLoginViewController.swift */; };
 		36626E0E2BAD58000063B38D /* EventsLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36626E0D2BAD58000063B38D /* EventsLoginViewController.swift */; };
 		36626E102BAD58B10063B38D /* InfoLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36626E0F2BAD58B10063B38D /* InfoLoginViewController.swift */; };
 		36626E122BAD66F70063B38D /* AddStudentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36626E112BAD66F70063B38D /* AddStudentsViewController.swift */; };
 		36626E142BAD69B10063B38D /* AddStudentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36626E132BAD69B10063B38D /* AddStudentsTableViewCell.swift */; };
+		36900E412BB278BD00EC3993 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36900E402BB278BD00EC3993 /* TabBarViewController.swift */; };
 		36A3E0A02BA7F08400CCDA76 /* RegisterNewSchoolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A3E09F2BA7F08400CCDA76 /* RegisterNewSchoolViewController.swift */; };
 		36A3E0A22BA7F2A000CCDA76 /* RegisterNewSchoolTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A3E0A12BA7F2A000CCDA76 /* RegisterNewSchoolTableViewCell.swift */; };
 		36A8A7452BA74029009D2807 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A8A7442BA74029009D2807 /* AppDelegate.swift */; };
@@ -27,12 +27,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		361CBC842BB1548A00F7A877 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		36626E0B2BAD486E0063B38D /* HomeLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeLoginViewController.swift; sourceTree = "<group>"; };
 		36626E0D2BAD58000063B38D /* EventsLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsLoginViewController.swift; sourceTree = "<group>"; };
 		36626E0F2BAD58B10063B38D /* InfoLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoLoginViewController.swift; sourceTree = "<group>"; };
 		36626E112BAD66F70063B38D /* AddStudentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStudentsViewController.swift; sourceTree = "<group>"; };
 		36626E132BAD69B10063B38D /* AddStudentsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStudentsTableViewCell.swift; sourceTree = "<group>"; };
+		36900E402BB278BD00EC3993 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		36A3E09F2BA7F08400CCDA76 /* RegisterNewSchoolViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterNewSchoolViewController.swift; sourceTree = "<group>"; };
 		36A3E0A12BA7F2A000CCDA76 /* RegisterNewSchoolTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterNewSchoolTableViewCell.swift; sourceTree = "<group>"; };
 		36A8A7412BA74029009D2807 /* Student-Details-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Student-Details-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,7 +82,6 @@
 				36A8A7462BA74029009D2807 /* SceneDelegate.swift */,
 				36A8A7482BA74029009D2807 /* OnboardViewController.swift */,
 				36A8A74A2BA74029009D2807 /* Main.storyboard */,
-				361CBC842BB1548A00F7A877 /* TabBarViewController.swift */,
 				36626E112BAD66F70063B38D /* AddStudentsViewController.swift */,
 				36626E132BAD69B10063B38D /* AddStudentsTableViewCell.swift */,
 				36626E0F2BAD58B10063B38D /* InfoLoginViewController.swift */,
@@ -92,6 +91,7 @@
 				36A3E09F2BA7F08400CCDA76 /* RegisterNewSchoolViewController.swift */,
 				36A8A75D2BA749E4009D2807 /* SchoolLoginTableViewCell.swift */,
 				36A8A75B2BA746A7009D2807 /* SchoolLogInViewController.swift */,
+				36900E402BB278BD00EC3993 /* TabBarViewController.swift */,
 				36A8A7502BA7402B009D2807 /* Assets.xcassets */,
 				36A8A7522BA7402B009D2807 /* LaunchScreen.storyboard */,
 				36A8A7552BA7402B009D2807 /* Info.plist */,
@@ -175,7 +175,7 @@
 				36A8A74F2BA74029009D2807 /* Student_Details_App.xcdatamodeld in Sources */,
 				36626E102BAD58B10063B38D /* InfoLoginViewController.swift in Sources */,
 				36A3E0A22BA7F2A000CCDA76 /* RegisterNewSchoolTableViewCell.swift in Sources */,
-				361CBC852BB1548A00F7A877 /* TabBarViewController.swift in Sources */,
+				36900E412BB278BD00EC3993 /* TabBarViewController.swift in Sources */,
 				36A3E0A02BA7F08400CCDA76 /* RegisterNewSchoolViewController.swift in Sources */,
 				36626E0C2BAD486E0063B38D /* HomeLoginViewController.swift in Sources */,
 				36A8A7492BA74029009D2807 /* OnboardViewController.swift in Sources */,
